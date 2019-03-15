@@ -39,5 +39,5 @@ Furthermore, the FCC data is closely correlated with the Census data because the
 * Compare these results to our theses 
   * i.e: Did net neutrality increase broadband usage by comparing increase in broadband usage from 2014-2017
   
- ### That's it for now, see y'all at the next checkpoint! May all your connections be 4g or higher :)
- team m a c h i n e l e a r n i n g, signing off ~
+### That's it for now, see y'all at the next checkpoint! May all your connections be 4g or higher :)
+team m a c h i n e l e a r n i n g, signing off ~
