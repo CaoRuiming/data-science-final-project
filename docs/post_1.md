@@ -1,5 +1,5 @@
 # Data Science Final Project First Blog Post
-Diane Mutako, Hyun Choi, Leon Lei, Raymond Cao | March 14, 2019
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diane Mutako, Hyun Choi, Leon Lei, Raymond Cao | March 14, 2019
 
 ### Wassup data science fam? Team m a c h i n e l e a r n i n g here. It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will!
 
