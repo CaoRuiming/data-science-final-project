@@ -1,6 +1,6 @@
 # Data Science Final Project First Blog Post
 
-### Wassup data science fam? It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will!
+### Wassup data science fam? Team m a c h i n e l e a r n i n g here. It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will!
 
 ## Project Summary
 
