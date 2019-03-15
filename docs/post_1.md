@@ -1,5 +1,7 @@
 # Data Science Final Project First Blog Post
 
+### Wassup data science fam? It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will!
+
 ## Project Summary
 
 The goal of our project is to study broadband deployment in the United States and what demographic factors, technologies, and policies can predict internet speeds across the country. More specifically, we want to explore the following questions:
@@ -11,8 +13,6 @@ The goal of our project is to study broadband deployment in the United States an
 ## Data Description
 
 We are using highly expansive datasets consisting of data on nationwide broadband internet access from the Federal Communications Commission, as well as all geographical and demographic data from the Census Bureau, specifically, the American Community Survey. The data is made more easily downloadable by the National Historical Geographic Information System, and it is broken down by census block area, which provides data such as educational attainment, race, age, average income, etc. with very high resolution. 
-
-### Wassup data science fam? It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will! 
 
 By our first check-in, we had already collected all our data and set up a MySQL instance on GCP. At the time, we were still having problems importing our data into the database, but it turns out that the problem was just the character encoding of our CSV file (shoutout to Jacob for helping us debug!). Saving the data with UTF-8 encoding fixed the problem, and now we have over 220k rows ready for query (omg that rhymes!). 
 
@@ -32,7 +32,7 @@ Furthermore, the FCC data is closely correlated with the Census data because the
   * i.e: income, education, race etc.
 * Join the FCC data with this Census data along census blocks
 * Build sample visualization on a small portion of our data using D3.js
-* We are going to run m a c h i n e l e a r n i n g and moderately-sized (b a b y  b i g) d a t a a n a l y s i s on our data
+* We are going to run m a c h i n e l e a r n i n g<br/> and (b a b y) b i g d a t a a n a l y s i s on our data
 * Calculate correlations and which of these different variables are the best predictors of broadband usage/speed
 * Compare these results to our theses 
   * i.e: Did net neutrality increase broadband usage by comparing increase in broadband usage from 2014-2017
