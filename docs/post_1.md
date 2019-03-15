@@ -1,5 +1,7 @@
 # Data Science Final Project First Blog Post
 
+ʕノ•ᴥ•ʔノ ︵ ┻━┻
+
 ### Wassup data science fam? It’s time to put the bro in broadband jk that doesn’t make any sense but we promise what’s coming next will!
 
 ## Project Summary
