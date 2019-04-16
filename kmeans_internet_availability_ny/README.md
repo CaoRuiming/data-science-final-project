@@ -5,7 +5,7 @@ This code performs an analysis of groupings of municipalities by number of inter
 [ # cable providers, # dsl providers, # fiber providers, # wireless providers, # satellite providers ]
 ```
 
-## Hypothesis and Beginning Thoughts
+## Hypotheses and Beginning Thoughts
 
 We originally thought that there would be 2 main clusters: one that consisted of rural households that had access to few internet service providers, and one that consisted of urban and suburban households that had access to many more providers. We also expected that the number of people in the former cluster would outnumber the people in the latter cluster.
 
@@ -17,7 +17,7 @@ To find the ideal value of K to perform the K-Means analysis, we plotted the err
 
 ## K-Means Analysis
 
-With `K=4`, we ran K-Means analysis 1000 times, we found that the averages of the 4 centroids were the following (each row is a centroid):
+With `K=4`, we ran K-Means analysis 1000 times, and we found that the averages of the 4 centroids were the following (each row is a centroid):
 
 ```
   cable      dsl        fiber      wireless   satellite
@@ -54,4 +54,6 @@ python kmeans_ny.py
 
 ## Data Source
 
-The data used to perform this analysis was downloaded as a CSV from: https://data.ny.gov/Economic-Development/Broadband-Availability-By-Municipality/sjc6-ftj4
+The data used to perform this analysis was downloaded as a CSV from these sources:
+  * https://catalog.data.gov/dataset/broadband-availability-by-municipality
+  * https://data.ny.gov/Economic-Development/Broadband-Availability-By-Municipality/sjc6-ftj4
