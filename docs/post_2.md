@@ -15,21 +15,21 @@ We've made great progress in data processing. While originally a large roadblock
 >```
 >[ # cable providers, # dsl providers, # fiber providers, # wireless providers, # satellite providers ]
 >```
-
-#### Hypotheses and Beginning Thoughts
-
-We originally thought that there would be 2 main clusters: one that consisted of rural households that had access to few internet service providers, and one that consisted of urban and suburban households that had access to many more providers. We also expected that the number of people in the former cluster would outnumber the people in the latter cluster.
-
-#### Finding K
-
-To find the ideal value of K to perform the K-Means analysis, we plotted the errors (inertia) for values of K from 1 to 15 (inclusive) and found that 4 was best value as shown below.
-
-![Figure 1](./Figure_1.png)
-
-#### K-Means Analysis
-
-With `K=4`, we ran K-Means analysis 1000 times, and we found that the averages of the 4 centroids were the following (each row is a centroid):
-
+>
+>#### Hypotheses and Beginning Thoughts
+>
+>We originally thought that there would be 2 main clusters: one that consisted of rural households that had access to few internet service providers, and one that consisted of urban and suburban households that had access to many more providers. We also expected that the number of people in the former cluster would outnumber the people in the latter cluster.
+>
+>#### Finding K
+>
+>To find the ideal value of K to perform the K-Means analysis, we plotted the errors (inertia) for values of K from 1 to 15 (inclusive) and found that 4 was best value as shown below.
+>
+>![Figure 1](./Figure_1.png)
+>
+>#### K-Means Analysis
+>
+>With `K=4`, we ran K-Means analysis 1000 times, and we found that the averages of the 4 centroids were the following (each row is a centroid):
+>
 ```
   cable      dsl        fiber      wireless   satellite
 [[0.92470371 1.13378801 0.34721665 2.79396034 4.        ]
