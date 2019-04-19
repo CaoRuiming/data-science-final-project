@@ -2,7 +2,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diane Mutako, Hyun Choi, Leon Lei, Raymond Cao | *April 19, 2019*
 
 ### Team m a c h i n e l e a r n i n g is back for some brief round 2 updates! 
-Since this post has been made optional, we're just going to keep it nice and brief by showcasing some of the things we've produced. We still have a lot to get to, but as of now we have some results in both machine learning and data visualization.
+Since this post has been made optional, we're just going to keep it nice and brief by showcasing some of the things we've produced. We still have a lot to get to, but as of now we have some updates on our progress in data processing, machine learning, and data visualization.
 
 ## Data processing
 We've made great progress in data processing. While originally a large roadblock, we mostly have this under control now.
