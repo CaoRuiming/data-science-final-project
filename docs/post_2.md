@@ -10,11 +10,11 @@ We've made great progress in data processing. While originally a large roadblock
 ## Machine Learning
 
 > ### K-Means Analysis of Internet Provider Availability in the State of New York (2015)
-
+>
 > This code performs an analysis of groupings of municipalities by number of internet service providers available through K-Means. We represented each municipality as a vector of length 5:
-```
-[ # cable providers, # dsl providers, # fiber providers, # wireless providers, # satellite providers ]
-```
+>```
+>[ # cable providers, # dsl providers, # fiber providers, # wireless providers, # satellite providers ]
+>```
 
 #### Hypotheses and Beginning Thoughts
 
