@@ -52,15 +52,15 @@ We've made great progress in data processing. While originally a large roadblock
 >#### Data Source
 >
 >The data used to perform this analysis was downloaded as a CSV from these sources:
->  * https://catalog.data.gov/dataset/broadband-availability-by-municipality
->  * https://data.ny.gov/Economic-Development/Broadband-Availability-By-Municipality/sjc6-ftj4
+>  * [https://catalog.data.gov/dataset/broadband-availability-by-municipality](https://catalog.data.gov/dataset/broadband-availability-by-municipality)
+>  * [https://data.ny.gov/Economic-Development/Broadband-Availability-By-Municipality/sjc6-ftj4](https://data.ny.gov/Economic-Development/Broadband-Availability-By-Municipality/sjc6-ftj4)
 
 
 
 ## Data Visualization
 We built a mini-framework for visualizing our data in scatterplot format, and this can eventually be extended to support other types of visualizations. As it stands now, our plot can easily be made interactive and allow users to choose which columns to sizeBy, colorBy, and which columns to use for the X-axis and Y-axis. The plot has zooming capabilities that take advantage of D3 Brush, and hovering over a datapoint will reveal some information about it.
 
-See the below plot, which is colored by
+[**Click here to view the visualization!!!**](https://bl.ocks.org/leibo123/raw/e363a2718cb735e8351075ea6a744621/26f6511609bb4abe0f5e1809a9ff58ed17c05720/)
   
 ### That's it for now, see y'all at the next checkpoint! May all your connections be 4g or higher :)
 team m a c h i n e l e a r n i n g, signing off ~
