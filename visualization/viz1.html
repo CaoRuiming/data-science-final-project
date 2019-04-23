@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NY State Broadband Availability</title>
+        <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+        <style type="text/css">
+            .dot {
+                stroke: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1>NY State Broadband Availability by Municipality</h1>
+        </div>
+        <div id="chart">
+        </div>
+        <div id="inputs">
+        </div>
+        <!--feel free to add style rules or just add styles directly to the d3 components-->
+        <script type="text/javascript">
+            // CODE GOES HERE
+            d3.csv("data.csv").then(data => {
+                console.log(data);
+                const label = d => {
+                    return "<b>Muni Name</b>: " + d["Municipality Name"] + "<br><b>County</b>: " + d["County"] + "<br>";
+                }
+                let sizeBy = "2010 Muni Housing Units"
+                let xBy = "# Hse Units DSL"
+                let yBy = "# Hse Units Cable"
+                let colorBy = "REDC Region"
+
+
+                let radius = d => {
+                    return parseFloat(d[sizeBy])
+                }
+                let x = d => {
+                    return parseFloat(d[xBy])
+                }
+                let y = d => {
+                    return parseFloat(d[yBy])
+                }
+                let color = d => {
+                    return d[colorBy]
+                }
+
+                // Chart dimensions
+                const margin = {top: 20, right: 20, bottom: 110, left: 50};
+                const margin2 = {top: 430, right: 20, bottom: 30, left: 40}
+                const width = 960 - margin.left - margin.right;
+                const height = 500 - margin.top - margin.bottom;
+                const height2 = 500 - margin2.top - margin2.bottom;
+
+                let xScale = d3.scaleLinear()
+                    .domain([0, 1800000])
+                    .range([0, width])
+                let x2Scale = d3.scaleLinear()
+                    .domain(xScale.domain())
+                    .range([0, width])
+                let yScale = d3.scaleLinear()
+                    .domain(xScale.domain())
+                    .range([height, 0])
+                let y2Scale = d3.scaleLinear()
+                    .domain(yScale.domain())
+                    .range([height2, 0])
+
+                const maxSize = d3.extent(data, radius)[1]
+                let sizeScale = d3.scaleLinear().domain([0, 20000]).range([0, 10])
+                let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+                const xAxis = d3.axisBottom(xScale).ticks(12, d3.format(",d"))
+                const yAxis = d3.axisLeft(yScale).ticks(12, d3.format(",d"))
+
+                const brushX = d3.brushX()
+                    .extent([[0, 0], [width, height2]])
+                    .on("brush end", brushedX);
+
+                const svg = d3.select("#chart")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+
+                const xlabel = svg.append("text")
+                    .attr("class", "x label")
+                    .attr("text-anchor", "end")
+                    .attr("x", width + margin.left)
+                    .attr("y", height + 10)
+                    .text(xBy);
+
+                const ylabel = svg.append("text")
+                    .attr("class", "y label")
+                    .attr("transform", "rotate(270)")
+                    .attr("text-anchor", "end")
+                    .attr("y", margin.left + 20)
+                    .text(yBy);
+
+                svg.append("defs").append("clipPath")
+                    .attr("id", "clip")
+                    .append("rect")
+                    .attr("width", width)
+                    .attr("height", height);
+
+                let focus = svg.append("g")
+                    .attr("class", "focus")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                let context = svg.append("g")
+                    .attr("class", "context")
+                    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+                var div = d3.select("body").append("div")   
+                    .attr("class", "tooltip")               
+                    .style("opacity", 0);
+
+                var nodes = focus.append("g");
+
+                nodes.attr("clip-path", "url(#clip)");
+                nodes.selectAll("dot")
+                    .data(data)
+                    .enter()
+                    .append("circle")
+                    .attr("class", "dot")
+                    .attr("cx", d => {
+                        return xScale(x(d));
+                    })
+                    .attr("cy", d => {
+                        return yScale(y(d));
+                    })
+                    .attr("r", d => {
+                        return sizeScale(radius(d));
+                    })
+                    .style("fill", d => {
+                        return colorScale(color(d));
+                    })
+                    .style("opacity", "0.8")
+                    .on("mouseover", function(d) {     
+                        div.transition()
+                            .duration(200)      
+                            .style("opacity", .9);      
+                        div.html(label(d) + "<b>" + sizeBy + "</b>: " + d[sizeBy] + "<br><b>" + xBy + "</b>: " + d[xBy] + "<br><b>" + yBy + "</b>: " + d[yBy])
+                            .style("left", (d3.event.pageX) + "px")     
+                            .style("top", (d3.event.pageY) + "px");    
+                        })                  
+                    .on("mouseout", function(d) {       
+                        div.transition()        
+                            .duration(500)      
+                            .style("opacity", 0);   
+                    });
+
+
+                focus.append("g")
+                    .attr("class", "axis axis--x")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis);
+
+                focus.append("g")
+                    .attr("class", "axis axis--y")
+                    .call(yAxis);
+
+                var nodes = context.append("g");
+                    nodes.attr("clip-path", "url(#clip)");
+                    nodes.selectAll("dot")
+                        .data(data)
+                        .enter()
+                        .append("circle")
+                        .attr("class", "dotContext")
+                        .attr("r", 3)
+                        .style("opacity", 0.3)
+                        .attr("cx", d => { return x2Scale(x(d));})
+                        .attr("cy", d => { return y2Scale(y(d));})
+
+                context.append("g")
+                    .attr("class", "axis axis--x")
+                    .attr("transform", "translate(0," + height2 + ")")
+                context.append("g")
+                    .attr("class", "brush")
+                    .call(brushX)
+                    .call(brushX.move, [xScale.range()[0], xScale.range()[1] / 60]);
+
+
+                function brushedX() {
+                    var selection = d3.event.selection;
+                    if (selection[1] < 0.8) {
+                        selection[1] = 0.8;
+                    }
+                    xScale.domain(selection.map(x2Scale.invert, x2Scale));
+
+                    yScale.domain(selection.map(x2Scale.invert, x2Scale));
+
+                    focus.selectAll(".dot")
+                        .attr("cx", function(d) { return xScale(x(d)); })
+                        .attr("cy", function(d) { return yScale(y(d)); });
+                    focus.select(".axis--x").call(xAxis);
+                    focus.select(".axis--y").call(yAxis);
+                }
+            });
+            
+        </script>
+    </body>
+</html>
