@@ -88,14 +88,39 @@ print("\ncentroids for 4 centroids across ", str(ITERS), " runs:" )
 print("  cable      dsl        fiber      wireless   satellite")
 print(avg_centroids)
 
+# plot stacked bar chart
+cable = avg_centroids[:,0]
+dsl = avg_centroids[:,1]
+fiber = avg_centroids[:,2]
+wireless = avg_centroids[:,3]
+satellite = avg_centroids[:,4]
+inds = np.arange(4)
+width = 0.35
+
+plt.figure(1)
+p1 = plt.bar(inds, satellite, width=width)
+p2 = plt.bar(inds, cable, width=width, bottom=satellite)
+p3 = plt.bar(inds, dsl, width=width, bottom=satellite+cable)
+p4 = plt.bar(inds, wireless, width=width, bottom=satellite+cable+dsl)
+p5 = plt.bar(inds, fiber, width=width, bottom=satellite+cable+dsl+wireless)
+
+plt.ylabel('Number of Available Internet Providers')
+plt.title('Internet Availability by Centroid')
+plt.xticks(inds, ('C1', 'C2', 'C3', 'C4'))
+plt.yticks(np.arange(0, 18, 1))
+plt.legend((p1[0], p2[0], p3[0], p4[0], p5[0]), ('satellite', 'cable', 'dsl', 'wireless', 'fiber'))
+
+# plt.show()
 
 # recalcuate labels for each data point in X based on sorted centroids
 distances = cdist(X, avg_centroids, 'euclidean') # calculate dists
 sortedInds = np.argsort(distances, axis=1) # sort indices by dist
 labels = sortedInds[:,0] # select the first column for each row
 
-# show histogram of distribution of data points in X that belong to each centroid
-plt.hist(labels, bins=4)
-plt.xlabel("Index of Centroid Label (Printed in order in Console)")
-plt.ylabel("Number of Municipalities Grouped to Centroid")
+# show pie chart of distribution of data points in X that belong to each centroid
+plt.figure(2)
+sizes = [np.sum(labels == 0), np.sum(labels == 1), np.sum(labels == 2), np.sum(labels == 3)]
+plt.pie(sizes, labels=('C1', 'C2', 'C3', 'C4'), startangle=90, \
+	counterclock=False, autopct="%.1f%%")
+plt.title('Population Grouped by Centroid')
 plt.show()
