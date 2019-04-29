@@ -99,6 +99,10 @@
 
         		d3.csv("data.csv").then(data => {
 	                console.log(data);
+	                for (let i = 0; i < data.length; i++) {
+	                	const popDensity = data[i]["2010 Muni Population"] / data[i]["Muni Area (sq mi)"]
+	                	data[i]["Population Density"] = popDensity
+	                }
 	                const headerNames = d3.keys(data[0]);
 	                console.log(headerNames)
 	                for (let i = 0; i < headerNames.length; i++) {
