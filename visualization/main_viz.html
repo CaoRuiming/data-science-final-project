@@ -97,7 +97,7 @@
         		document.getElementById("colorByInput").blur()
         		document.getElementById("sizeByInput").blur()
 
-        		d3.csv("data.csv").then(data => {
+        		d3.csv("main_viz_data.csv").then(data => {
 	                console.log(data);
 	                for (let i = 0; i < data.length; i++) {
 	                	const popDensity = data[i]["2010 Muni Population"] / data[i]["Muni Area (sq mi)"]
