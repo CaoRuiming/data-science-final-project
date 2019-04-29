@@ -4,4 +4,4 @@
 
 ## [Blog Post 2](post_2.md)
 
-## [Vizualizations](vizualizations.md)
+## [Visualizations](visualizations.md)
