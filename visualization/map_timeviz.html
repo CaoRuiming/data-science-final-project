@@ -221,7 +221,7 @@
 								CountSE=data[year_index][d + "CountSE"], 
 								Prop=data[year_index][d + "Prop"],
 								PropSE=data[year_index][d + "PropSE"];
-							sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop)}; 
+							sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop**2)}; 
 						});
 						
 						/* draw states on id #statesvg */	
@@ -238,7 +238,7 @@
 							CountSE=data[year_index][d + "CountSE"], 
 							Prop=data[year_index][d + "Prop"],
 							PropSE=data[year_index][d + "PropSE"];
-						sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop)}; 
+						sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop**2)}; 
 					});
 					
 					/* draw states on id #statesvg */	
