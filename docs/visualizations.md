@@ -1,6 +1,6 @@
 Click [here](https://dmutako.github.io/data-science-final-project/) or on the title above to return to the homepage!
 
-These are additional interactive visualizations that we created but did not include in our Poster. 
+These are additional interactive visualizations that we created but did not include in our Poster. <br>
 Click on one of the header links or images below to view them!
 
 # [Choropleth Time Visualization](https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/0ccd926b28539ebb1203189ecfc1b28231498074/)
