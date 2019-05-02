@@ -3,8 +3,8 @@ Click [here](https://dmutako.github.io/data-science-final-project/) or on the ti
 These are additional interactive visualizations that we created but did not include in our Poster. <br>
 Click on one of the header links or images below to view them!
 
-# [Choropleth Time Visualization](https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/0ccd926b28539ebb1203189ecfc1b28231498074/)
-<a href="https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/0ccd926b28539ebb1203189ecfc1b28231498074/"><img src="mapvis.gif"></a>
+# [Choropleth Time Visualization](https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/)
+<a href="https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/"><img src="mapvis.gif"></a>
 
 Dynamically loads all available variables from [this](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics) dataset and includes a slider for viewing the available data at each year. Displays state-specific information on hover.
 
