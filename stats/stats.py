@@ -8,9 +8,31 @@ def z_test(p1, p2, n1, n2):
 	z = (p1 - p2) / SE
 	return z
 
-def significant(z, alpha=0.05):
+def significant_greater(z, alpha=0.001):
+	if alpha == 0.10:
+		threshold = 1.282
+	if alpha == 0.05:
+		threshold = 1.645
+	if alpha == 0.025:
+		threshold = 1.960
+	if alpha == 0.010:
+		threshold = 2.326
+	if alpha == 0.005:
+		threshold = 2.576
+	if alpha == 0.001:
+		threshold = 3.090
+	if alpha == 0.0001:
+		threshold = 3.719
+	if z >= threshold:
+		return True
+	return False
+def significant(z, alpha=0.01):
 	if alpha == 0.01:
 		threshold = 2.58
+	elif alpha == 0.001:
+		threshold = 3.291
+	elif alpha == 0.0001:
+		threshold = 3.819
 	elif alpha == 0.1:
 		threshold = 1.645
 	else:
@@ -22,6 +44,10 @@ def significant(z, alpha=0.05):
 def test(p1, p2, n1, n2):
 	z = z_test(p1, p2, n1, n2)
 	return significant(z) 
+
+def testGreater(p1, p2, n1, n2):
+	z = z_test(p1, p2, n1, n2)
+	return significant_greater(z)
 
 def isFloat(inp):
 	try:
@@ -87,7 +113,9 @@ with open('data.csv') as file:
 				if p1 is False or p2 is False or n1 is False or n2 is False: continue
 				if n1 == 0 or n2 == 0: continue
 
-				if test(p1, p2, n1, n2):
-					print(k1, "and", k2, "are significant, alpha=0.05")
-				visited.add((k1, k2))
+				# if test(p1, p2, n1, n2):
+				# 	print(k1, "and", k2, "are significant, alpha=0.05")
+				if testGreater(p1, p2, n1, n2):
+					print(k1, "and", k2, "are significant, alpha=0.01")
+				#visited.add((k1, k2))
 		print("=========================================")
