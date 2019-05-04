@@ -21,11 +21,11 @@ By our first check-in, we had already collected all our data and set up a MySQL 
 
 The following image is an example of a visualization of the raw data provided by the FCC. 
 
-![US Broadband Heatmap](images/pic1.png)
+![US Broadband Heatmap](images/post_1/pic1.png)
 
 Furthermore, the FCC data is closely correlated with the Census data because the FCC data is sorted geographically on census block. Some raw census data (a small sample out of 220,000+ rows) is shown on a spreadsheet as follows, where GISJOIN is the census block code:
 
-![Census Data](images/pic2.png)
+![Census Data](images/post_1/pic2.png)
 
 ### We hope you’re excited to hear about our next steps, because we have lots of ideas! 
 

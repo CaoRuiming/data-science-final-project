@@ -4,12 +4,11 @@ These are additional interactive visualizations that we created but did not incl
 Click on one of the header links or images below to view them!
 
 # [Choropleth Time Visualization](https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/)
-<a href="https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/"><img src="mapvis.gif"></a>
+<a href="https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/"><img src="images/visualizations/mapvis.gif"></a>
 
 Dynamically loads all available variables from [this](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics) dataset and includes a slider for viewing the available data at each year. Displays state-specific information on hover.
 
 # [Interactive Scatter Visualization](https://bl.ocks.org/leibo123/raw/4286a693e1196a93addb8c4dd5c37f54)
-<a href="https://bl.ocks.org/leibo123/raw/4286a693e1196a93addb8c4dd5c37f54/"><img src="viz1screenshot.JPG" width="470"></a>
+<a href="https://bl.ocks.org/leibo123/raw/4286a693e1196a93addb8c4dd5c37f54/"><img src="images/visualizations/viz1screenshot.JPG" width="470"></a>
 
 This visualization can be used as its own framework on other data sources - for the most part this just requires changing the CSV file. The code will dynamically loads all possible columns as input and allow users to choose which variables to plot on the x or y axis, and which variables to color or size the scatter by. The current demo uses [this](https://catalog.data.gov/dataset/broadband-availability-by-municipality) dataset.
-
