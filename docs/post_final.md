@@ -61,13 +61,20 @@ Much of our other analyses had little to do with the development of broadband in
 While the correlation between household income and internet speed was not as clear, the correlation between household income and internet usage was much stronger. Using the [NTIA dataset](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics), we conducted upper-tailed two-proportion Z-tests for internet usage at home for people in each income bracket (<$25k, $25k-49k, $50k-74k, $75k-99k, >$100k) against all income brackets above them to determine if the difference in internet usage was statistically significant (α = 0.001). Across the board, higher income brackets had statistically significantly greater rates of internet usage at home than lower income brackets. This was true for all years when data was collected, i.e. between 2010-2017 (excluding 2014 and 2016, when no income data was collected).
 
 ### Choropleth Maps for New York & California
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
+
+<style>
+iframe {
+	width: 100%;
+  max-height: 460px;
+}
+</style>
 
 The choropleth maps show the median household income and average speed of cable providers in each county in New York and California. Census data from the American Community Survey 2017 as well as the [FCC Fixed Broadband Deployment Data](https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477) were used. The maps further demonstrate the small (if any) correlation between median household income and internet speed. For these maps, only cable provider speeds were used for uniformity. Cable is the most commonly used broadband technology in the United States but there are various cable technologies that causes cable speeds to vary between different areas. This makes cable an ideal technology to use to view the speed differences between areas. Meanwhile, DSL is much too slow, and fiber internet—if offered in an area—almost always results in speeds near 1000 mbps, both of which would skew the data too much. 
 
