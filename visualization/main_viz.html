@@ -97,8 +97,12 @@
         		document.getElementById("colorByInput").blur()
         		document.getElementById("sizeByInput").blur()
 
-        		d3.csv("data.csv").then(data => {
+        		d3.csv("main_viz_data.csv").then(data => {
 	                console.log(data);
+	                for (let i = 0; i < data.length; i++) {
+	                	const popDensity = data[i]["2010 Muni Population"] / data[i]["Muni Area (sq mi)"]
+	                	data[i]["Population Density"] = popDensity
+	                }
 	                const headerNames = d3.keys(data[0]);
 	                console.log(headerNames)
 	                for (let i = 0; i < headerNames.length; i++) {
@@ -143,8 +147,8 @@
 	                }
 
 	                // Chart dimensions
-	                const margin = {top: 20, right: 20, bottom: 110, left: 50};
-	                const margin2 = {top: 430, right: 20, bottom: 30, left: 40}
+	                const margin = {top: 20, right: 30, bottom: 110, left: 60};
+	                const margin2 = {top: 430, right: 30, bottom: 30, left: 60}
 	                const width = 960 - margin.left - margin.right;
 	                const height = 500 - margin.top - margin.bottom;
 	                const height2 = 500 - margin2.top - margin2.bottom;

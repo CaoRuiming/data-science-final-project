@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Broadband Adoption and Computer Use</title>
+        <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+	<style>
+	    #chart {
+        	float: left;
+        }
+        #inputs {
+        	float: left;
+        }
+		.state{
+			fill: none;
+			stroke: #999;
+			stroke-width: 1;
+		}
+		.state:hover{
+			fill-opacity:0.7;
+		}
+		#tooltip {   
+			position: absolute;           
+			text-align: center;
+			padding: 20px;             
+			margin: 10px;
+			font: 12px sans-serif;        
+			background: lightsteelblue;   
+			border: 1px;      
+			border-radius: 2px;           
+			pointer-events: none;         
+		}
+		#tooltip h4{
+			margin:0;
+			font-size:14px;
+		}
+		#tooltip{
+			background:rgba(0,0,0,0.9);
+			border:1px solid grey;
+			border-radius:5px;
+			font-size:12px;
+			width:auto;
+			padding:4px;
+			color:white;
+			opacity:0;
+		}
+		#tooltip table{
+			table-layout:fixed;
+		}
+		#tooltip tr td{
+			padding:0;
+			margin:0;
+		}
+		#tooltip tr td:nth-child(1){
+			width:50px;
+		}
+		#tooltip tr td:nth-child(2){
+			text-align:center;
+		}
+
+		.slidecontainer {
+		  width: 100%;
+		}
+
+		.slider {
+		  -webkit-appearance: none;
+		  width: 100%;
+		  height: 15px;
+		  border-radius: 5px;
+		  background: #d3d3d3;
+		  outline: none;
+		  opacity: 0.7;
+		  -webkit-transition: .2s;
+		  transition: opacity .2s;
+		}
+
+		.slider:hover {
+		  opacity: 1;
+		}
+
+		.slider::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 25px;
+		  height: 25px;
+		  border-radius: 50%;
+		  background: #1E90FF;
+		  cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+		  width: 25px;
+		  height: 25px;
+		  border-radius: 50%;
+		  background: #1E90FF;
+		  cursor: pointer;
+		}
+
+		#slidervalue {
+			font-size: 24px;
+			font-weight: 700;
+			color: #222;
+		}
+
+	</style>
+    </head>
+    <body>
+    	<script src="uStates.js"></script>
+    	<div id="popup" style="display: none"></div>
+    	<div id="tooltip"></div>
+    	 <div id="header">
+            <h1>Broadband Adoption and Computer Use by year, state, demographic characteristics</h1>
+        </div>
+        <div id="chart">
+    		<svg width="960" height="600" id="statesvg"></svg>
+    	</div>
+    	<div id="inputs">
+    		<h4>Variable</h4>
+        	<input id="variableInput" list="variableBy" name="variableOptions" onchange="handleChangeVariable(this)" onfocus="this.temp = this.value; this.value = ''" onfocusout="this.value = this.temp;">
+        	<datalist id="variableBy">
+        	</datalist>
+
+        	<h4>Year</h4>
+        	<div class="slidecontainer">
+			  <input type="range" min="1" max="20" value="20" class="slider" id="myRange">
+			  <p><span id="slidervalue"></span></p>
+			</div>
+	    </div>
+
+        <!--feel free to add style rules or just add styles directly to the d3 components-->
+        <script type="text/javascript">
+            // CODE GOES HERE
+            function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
+				return "<h4>"+n+"</h4><table>"+
+					"<tr><td>Count</td><td>"+(d.Count)+"</td></tr>"+
+					"<tr><td>CountSE</td><td>"+(d.CountSE)+"</td></tr>"+
+					"<tr><td>Prop</td><td>"+(d.Prop)+"</td></tr>"+
+					"<tr><td>PropSE</td><td>"+(d.PropSE)+"</td></tr>"+
+					"</table>";
+			}
+			let variable = "internetAtHome"
+			let variableOptions = undefined
+			
+
+			render();
+
+			function handleChangeVariable(t) {
+        		t.temp = t.value;
+        		variable = t.value;
+        		render();
+        	}
+						
+			function render() {
+
+				document.getElementById("variableInput").value = variable;
+				document.getElementById("variableInput").blur()
+
+				d3.select("#statesvg").selectAll("*").remove();
+
+				d3.csv("map_timeviz_data.csv").then(data => {
+
+					if (variableOptions === undefined) {
+						variableOptions = {}
+						data.forEach(d => {
+							variableOptions[d["variable"]] = d["description"]
+						})
+						variableOpts = Object.keys(variableOptions)
+						for (let i = 0; i < variableOpts.length; i++) {
+	                		let optVar = document.createElement("option")
+	                		optVar.className = "optTooltip"
+		                	optVar.value = variableOpts[i]
+		                	let optSpan = document.createElement("span")
+		                	optSpan.className = "optTooltipText"
+		                	optSpan.innerText = variableOptions[variableOpts[i]]
+		                	optVar.appendChild(optSpan)
+
+
+		                	let varDatalist = document.getElementById("variableBy")
+		                	varDatalist.appendChild(optVar)
+		                }
+					}
+
+					let sampleData ={};	/* Sample random data. */	
+					const states = ["HI", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
+					"ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH", 
+					"MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT", 
+					"CO", "NM", "OR", "ND", "SD", "NE", "IA", "MS", "IN", "IL", "MN", 
+					"WI", "MO", "AR", "OK", "KS", "LA", "VA"]
+
+					data = data.filter(d => {return d["variable"] == variable;});
+
+					let years = data.map(d => {return parseInt(d["dataset"].substring(6, 10)); })
+					let yearExtent = d3.extent(years)
+					let yearScale = d3.scaleLinear().domain([1, 20]).range([yearExtent[0], yearExtent[1]])
+								
+					function interpolateYear(year) {
+						if (years.length == 1) {
+							return years[0];
+						}
+						for (let i = 0; i < years.length - 1; i++) {
+							let prev = years[i]
+							let next = years[i + 1]
+							if (year >= prev && year < next) return (Math.abs(year - prev) < Math.abs(year - next)) ? prev : next;
+						}
+						return years[years.length - 1]
+					}
+					let slider = document.getElementById("myRange");
+					let output = document.getElementById("slidervalue");
+					slider.value = 20;
+					outputYear = interpolateYear(yearScale(slider.value));
+					output.innerHTML = outputYear;			
+
+					slider.oninput = function() {
+						let output = document.getElementById("slidervalue");
+			  			output.innerHTML = interpolateYear(yearScale(slider.value));
+
+			  			d3.select("#statesvg").selectAll("*").remove();
+			  			let year_index = years.indexOf(interpolateYear(yearScale(slider.value)));
+						states.forEach(function(d){
+							const Count=data[year_index][d + "Count"], 
+								CountSE=data[year_index][d + "CountSE"], 
+								Prop=data[year_index][d + "Prop"],
+								PropSE=data[year_index][d + "PropSE"];
+							sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop**2)}; 
+						});
+						
+						/* draw states on id #statesvg */	
+						uStates.draw("#statesvg", sampleData, tooltipHtml);
+						
+						d3.select(self.frameElement).style("height", "600px"); 
+					}
+
+					console.log(data);
+
+					let year_index = years.indexOf(outputYear);
+					states.forEach(function(d){
+						const Count=data[year_index][d + "Count"], 
+							CountSE=data[year_index][d + "CountSE"], 
+							Prop=data[year_index][d + "Prop"],
+							PropSE=data[year_index][d + "PropSE"];
+						sampleData[d]={Count: Count, CountSE: CountSE, Prop: Prop, PropSE: PropSE, color:d3.interpolate("#F0F8FF", "#0000CD")(Prop**2)}; 
+					});
+					
+					/* draw states on id #statesvg */	
+					uStates.draw("#statesvg", sampleData, tooltipHtml);
+					
+					d3.select(self.frameElement).style("height", "600px"); 
+				});      
+			}      
+            
+        </script>
+    </body>
+</html>
