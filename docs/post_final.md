@@ -18,7 +18,7 @@ Finding workable data for our analyses was trickier than we expected because the
 
 In the end, most of our analyses were performed on data pre-filtered on state or internet technology type. For example, some of the analysis done on New York came from data uploaded by the state of New York to data.gov.
 
-On the flip side, there was some information that we had significant difficulty in finding. We could not find comprehensive, trustworthy data on cellular network coverage to compare with our broadband data (timelines did not match).
+On the flip side, there was some information that we had significant difficulty in finding. We could not find comprehensive, trustworthy data on cellular network coverage to compare with our broadband data. We also faced issues finding data that matched with each other chronologically. The FCC data was released every 6 months for 2015-2017, but we could not find data from the Census that were released at the same times, so we could not perform analyses on changes over time.
 
 ## Methodology
 We performed 5 analyses for this project:
