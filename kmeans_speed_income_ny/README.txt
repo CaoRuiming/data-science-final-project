@@ -5,8 +5,10 @@ Data Set:
         https://drive.google.com/a/brown.edu/file/d/13lV1-9WKhyKlk2B5xAP5N2OzRo8G7jjv/view?usp=sharing
 
 K-Means analysis (description and conclusions, as seen on the final blogpost):
-    We did a K-means analysis of the average speed/technology available in all New York block groups to see if the clusters would form around the median household income to indicate a correlation between these two variables.
-    We graphed the clusters’ overall average speed against the Median Household Income of each point to observe this correlation or lack of.
+   We did a K-means analysis of the average speed/technology available in all New York block groups to see if the clusters would form around the median household income to indicate a correlation between these two variables.
+    We graphed the clusters’ overall average speed against the Median Household Income of each point to observe this correlation or lack of.(income_speed_clusters.png)
     As seen in the plot, the clusters are not grouped around certain income levels. The only slight difference from cluster to cluster is the overall average speed in that region. Therefore, we concluded that there is no direct correlation between the Median Household income of an area and the average downstream speed/technology in that area. 
     In New York, this can likely be attributed to the high number of available technologies and providers. Although these technologies do have different downstream speeds from area to area, this analysis confirms that this difference is not due to the income levels in the area.
+    This folder also contains a series of pie-chart for each centroid which indicate to what extent each technology contributes to the overall speed in the area. Here is a short description for what technology each code represents: https://www.fcc.gov/general/technology-codes-used-fixed-broadband-deployment-data?fbclid=IwAR3xr1TLwGrl4HjKB67ifYTuzwgiAreljLciG50EPFTHvSKn9UGwZE--Fcg
+    
     
