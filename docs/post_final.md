@@ -72,7 +72,6 @@ While the correlation between household income and internet speed was not as cle
 <style>
 iframe {
 	width: 100%;
-  max-height: 460px;
 }
 </style>
 
