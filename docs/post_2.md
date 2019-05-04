@@ -24,7 +24,7 @@ We've made great progress in data processing. While originally a large roadblock
 >
 >To find the ideal value of K to perform the K-Means analysis, we plotted the errors (inertia) for values of K from 1 to 15 (inclusive) and found that 4 was best value as shown below.
 >
->![Figure 1](./Figure_1.png)
+>![Figure 1](images/post_2/Figure_1.png)
 >
 >#### K-Means Analysis
 >
@@ -38,13 +38,13 @@ We've made great progress in data processing. While originally a large roadblock
 > [1.38594809 1.99346829 4.49734056 5.04028195 4.        ]]
 >```
 >
->![Figure 2](./Figure_2.png)
+>![Figure 2](images/post_2/Figure_2.png)
 >
 >Satellite seemed to have no significance, which made sense because it, by nature of the technology, is not heavily impacted by geography.
 >
 >We also plotted a pie chart to see how many municipalities were grouped with each of the centroids. Each secion (shown below) from the top clockwise correspond to the centroids (shown above) from left to right.
 >
->![Figure 3](./Figure_3.png)
+>![Figure 3](images/post_2/Figure_3.png)
 >
 >#### Conclusions
 >
