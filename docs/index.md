@@ -6,4 +6,5 @@
 
 ## [Interactive Visualizations](visualizations.md)
 
+
 ## [Final Blog Post](post_final.md)

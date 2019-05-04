@@ -12,4 +12,3 @@ Dynamically loads all available variables from [this](https://catalog.data.gov/d
 <a href="https://bl.ocks.org/leibo123/raw/4286a693e1196a93addb8c4dd5c37f54/"><img src="images/visualizations/viz1screenshot.JPG" width="470"></a>
 
 This visualization can be used as its own framework on other data sources - for the most part this just requires changing the CSV file. The code will dynamically loads all possible columns as input and allow users to choose which variables to plot on the x or y axis, and which variables to color or size the scatter by. The current demo uses [this](https://catalog.data.gov/dataset/broadband-availability-by-municipality) dataset.
-
