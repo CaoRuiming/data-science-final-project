@@ -89,4 +89,5 @@ The choropleth maps show the median household income and average speed of cable 
   - Census Bureau Dataset: https://drive.google.com/a/brown.edu/file/d/13lV1-9WKhyKlk2B5xAP5N2OzRo8G7jjv/view?usp=sharing
     - This links to a csv file on google drive which contains Median Household income for New York. 
   - Broadband availability per municipality in New York (file included in repo under `kmeans_availability_ny`)
+  - NTIA (National Telecommunications and Information Administration) Dataset: https://www.ntia.doc.gov/data/digital-nation-data-explorer#sel=internetUser&demo=&pc=prop&disp=both
 
