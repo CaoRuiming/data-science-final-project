@@ -47,6 +47,35 @@ We performed 5 analyses for this project:
 
 ![Figure 2](images/post_final/Figure_2.png)
 
+### Choropleth Maps for New York & California
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
+
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
+
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
+
+<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
+
+<style>
+iframe {
+	width: 100%;
+ 	max-height: 460px;
+}
+</style>
+
+The choropleth maps show the median household income and average speed of cable providers in each county in New York and California. Census data from the American Community Survey 2017 as well as the [FCC Fixed Broadband Deployment Data](https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477) were used. The maps further demonstrate the small (if any) correlation between median household income and internet speed. For these maps, only cable provider speeds were used for uniformity. Cable is the most commonly used broadband technology in the United States but there are various cable technologies that causes cable speeds to vary between different areas. This makes cable an ideal technology to use to view the speed differences between areas. Meanwhile, DSL is much too slow, and fiber internet—if offered in an area—almost always results in speeds near 1000 mbps, both of which would skew the data too much. 
+
+### Statistical Analysis on Household Income & Internet Usage
+While the correlation between household income and internet speed was not as clear, the correlation between household income and internet usage was much stronger. Using the [NTIA dataset](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics), we conducted upper-tailed two-proportion Z-tests for internet usage at home for people in each income bracket (<$25k, $25k-49k, $50k-74k, $75k-99k, >$100k) against all income brackets above them to determine if the difference in internet usage was statistically significant (α = 0.001). Across the board, higher income brackets had statistically significantly greater rates of internet usage at home than lower income brackets. This was true for all years when data was collected, i.e. between 2010-2017 (excluding 2014 and 2016, when no income data was collected).
+
+## Conclusions
+  - The “digital divide” does indeed exist, though the border may sometimes be less distinct depending on the metrics focused upon.
+  - Wireless internet service and other similar technologies like 5G Cellular networks may play a key role in increasing ISP choice for Americans since they have lower infrastructure hurdles.
+  - The strong correlation between income and internet usage at home is a somewhat different comparison than between income and internet speed. Firstly, if a technology is available in an area, it is natural that the entire region would have internet speeds that reflect the available technologies. However, on a more granular, census-level dataset, we were able to see what proportion of people actually took advantage of the available infrastructure. On the household level, several other conditions must be satisfied before internet can be used at home. For example, there may be no need for internet at home if the household doesn’t even own internet-accessing devices, e.g. a computer.
+  
+## More Visualizations!!!
+We produced some other interactive visualizations using D3:
+
 ### D3 Scatterplot
 <a href="https://bl.ocks.org/leibo123/raw/4286a693e1196a93addb8c4dd5c37f54/"><img src="images/visualizations/viz1screenshot.JPG" width="470"></a>
 
@@ -56,31 +85,6 @@ We used D3 to create an interactive scatterplot visualization framework that wor
 <a href="https://bl.ocks.org/leibo123/raw/e6644701e644c9243c2e19e6c95b059f/"><img src="images/visualizations/mapvis.gif"></a>
 
 Much of our other analyses had little to do with the development of broadband in the U.S. over time. In order to get a better idea of the temporal changes in U.S. Broadband usage, we produced a D3 choropleth visualization inspired by [this bl.ock](http://bl.ocks.org/NPashaP/a74faf20b492ad377312). We started off with just a simple map vis of the U.S. and augmented it by dynamically processing our data (the [NTIA dataset](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics)) to focus on a single variable based on the user’s input. We also included a slider that could be used to scroll through the various years in which that variable was collected. In the UI, users get to see all available variables as well as their descriptions as options for input, and this is all generated dynamically by the code. Once again, while these visualizations did not have a direct contribution to our analyses and results, they were great at helping us to understand the dataset in a more intuitive way. Some variables that we think are cool to look at are `internetAtHome` and `dialUpAtHome`.
-
-### Statistical Analysis on Household Income & Internet Usage
-While the correlation between household income and internet speed was not as clear, the correlation between household income and internet usage was much stronger. Using the [NTIA dataset](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics), we conducted upper-tailed two-proportion Z-tests for internet usage at home for people in each income bracket (<$25k, $25k-49k, $50k-74k, $75k-99k, >$100k) against all income brackets above them to determine if the difference in internet usage was statistically significant (α = 0.001). Across the board, higher income brackets had statistically significantly greater rates of internet usage at home than lower income brackets. This was true for all years when data was collected, i.e. between 2010-2017 (excluding 2014 and 2016, when no income data was collected).
-
-### Choropleth Maps for New York & California
-<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
-
-<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
-
-<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
-
-<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
-
-<style>
-iframe {
-	width: 100%;
-}
-</style>
-
-The choropleth maps show the median household income and average speed of cable providers in each county in New York and California. Census data from the American Community Survey 2017 as well as the [FCC Fixed Broadband Deployment Data](https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477) were used. The maps further demonstrate the small (if any) correlation between median household income and internet speed. For these maps, only cable provider speeds were used for uniformity. Cable is the most commonly used broadband technology in the United States but there are various cable technologies that causes cable speeds to vary between different areas. This makes cable an ideal technology to use to view the speed differences between areas. Meanwhile, DSL is much too slow, and fiber internet—if offered in an area—almost always results in speeds near 1000 mbps, both of which would skew the data too much. 
-
-## Conclusions
-  - The “digital divide” does indeed exist, though the border may sometimes be less distinct depending on the metrics focused upon.
-  - Wireless internet service and other similar technologies like 5G Cellular networks may play a key role in increasing ISP choice for Americans since they have lower infrastructure hurdles.
-  - The strong correlation between income and internet usage at home is a somewhat different comparison than between income and internet speed. Firstly, if a technology is available in an area, it is natural that the entire region would have internet speeds that reflect the available technologies. However, on a more granular, census-level dataset, we were able to see what proportion of people actually took advantage of the available infrastructure. On the household level, several other conditions must be satisfied before internet can be used at home. For example, there may be no need for internet at home if the household doesn’t even own internet-accessing devices, e.g. a computer.
 
 ## Data Sources
   - FCC Dataset: https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477
