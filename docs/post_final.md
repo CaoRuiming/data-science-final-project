@@ -61,13 +61,13 @@ Much of our other analyses had little to do with the development of broadband in
 While the correlation between household income and internet speed was not as clear, the correlation between household income and internet usage was much stronger. Using the [NTIA dataset](https://catalog.data.gov/dataset/broadband-adoption-and-computer-use-by-year-state-demographic-characteristics), we conducted upper-tailed two-proportion Z-tests for internet usage at home for people in each income bracket (<$25k, $25k-49k, $50k-74k, $75k-99k, >$100k) against all income brackets above them to determine if the difference in internet usage was statistically significant (α = 0.001). Across the board, higher income brackets had statistically significantly greater rates of internet usage at home than lower income brackets. This was true for all years when data was collected, i.e. between 2010-2017 (excluding 2014 and 2016, when no income data was collected).
 
 ### Choropleth Maps for New York & California
-<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
+<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/18.embed"></iframe>
 
-<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
+<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/12.embed"></iframe>
 
-<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
+<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/24.embed"></iframe>
 
-<iframe width="900" height="460" frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
+<iframe frameborder="0" scrolling="no" src="//plot.ly/~hyunchoi98/20.embed"></iframe>
 
 <style>
 iframe {
