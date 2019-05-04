@@ -84,4 +84,9 @@ The choropleth maps show the median household income and average speed of cable 
   - The strong correlation between income and internet usage at home is a somewhat different comparison than between income and internet speed. Firstly, if a technology is available in an area, it is natural that the entire region would have internet speeds that reflect the available technologies. However, on a more granular, census-level dataset, we were able to see what proportion of people actually took advantage of the available infrastructure. On the household level, several other conditions must be satisfied before internet can be used at home. For example, there may be no need for internet at home if the household doesn’t even own internet-accessing devices, e.g. a computer.
 
 ## Data Sources
-  - 
+  - FCC Dataset: https://www.fcc.gov/general/broadband-deployment-data-fcc-form-477
+    - This dataset contains broadband deployment data for the entire country and links to the data for New York and California, the only states we did this analysis on.
+  - Census Bureau Dataset: https://drive.google.com/a/brown.edu/file/d/13lV1-9WKhyKlk2B5xAP5N2OzRo8G7jjv/view?usp=sharing
+    - This links to a csv file on google drive which contains Median Household income for New York. 
+  - Broadband availability per municipality in New York (file included in repo under `kmeans_availability_ny`)
+
